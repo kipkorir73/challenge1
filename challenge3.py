@@ -1,16 +1,15 @@
-def exactly_two_positive(a, b, c):
-    positive_count = 0
+def solve(s):
+    consonants = "bcdfghjklmnpqrstvwxyz"
+    max_value = 0
+    current_value = 0
     
-    if a > 0:
-        positive_count += 1
-    if b > 0:
-        positive_count += 1
-    if c > 0:
-        positive_count += 1
+    for char in s:
+        if char in consonants:
+            current_value += ord(char) - ord('a') + 1
+            max_value = max(max_value, current_value)
+        else:
+            current_value = 0
     
-    return positive_count == 2
-
-print(exactly_two_positive(2, 4, -3))  
-print(exactly_two_positive(-4, 6, 8))  
-print(exactly_two_positive(4, -6, 9))  
-print(exactly_two_positive(-4, 6, 0))  
+    return max_value
+print(solve("zodiacs")) 
+print(solve("strength"))  
